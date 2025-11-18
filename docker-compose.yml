@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: vercode_db
+    restart: always
+    environment:
+      POSTGRES_USER: vercode_user
+      POSTGRES_PASSWORD: vercode_password
+      POSTGRES_DB: vercode_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.docker-data/postgres:/var/lib/postgresql/data
